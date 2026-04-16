@@ -1,0 +1,269 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    max-width: 900px;
+    margin: auto;
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+}
+
+h1 {
+    color: #b83b2e;
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 2.5em;
+}
+
+.subtitle {
+    text-align: center;
+    color: #666;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 15px;
+}
+
+h2 {
+    color: #333;
+    margin: 20px 0 15px 0;
+    border-right: 5px solid #b83b2e;
+    padding-right: 15px;
+}
+
+.member {
+    background: #f8f9fa;
+    border-radius: 10px;
+    padding: 12px 20px;
+    margin: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.member-name {
+    font-weight: bold;
+    color: #333;
+}
+
+.member-id {
+    color: #666;
+    font-family: monospace;
+    font-size: 1.1em;
+}
+
+.link-box {
+    background: #e8f4f8;
+    border-radius: 10px;
+    padding: 15px;
+    margin: 15px 0;
+    text-align: center;
+    border: 1px dashed #0099cc;
+}
+
+.link-box a {
+    color: #0099cc;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.note {
+    background: #fff3cd;
+    border-right: 5px solid #ffc107;
+    padding: 15px;
+    border-radius: 10px;
+    margin-top: 25px;
+}
+
+.nav-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    background: #b83b2e;
+    color: white;
+    padding: 10px 25px;
+    border-radius: 25px;
+    text-decoration: none;
+    transition: 0.3s;
+    display: inline-block;
+}
+
+.btn:hover {
+    background: #8b2a1f;
+    transform: scale(1.05);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: center;
+}
+
+th {
+    background-color: #b83b2e;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.details-row {
+    background-color: #fff3cd;
+}
+
+.details-content {
+    text-align: right;
+    padding: 15px;
+    line-height: 1.8;
+}
+
+.btn-details {
+    background-color: #0099cc;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-details:hover {
+    background-color: #007799;
+}
+
+input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.continue-btn {
+    background-color: #b83b2e;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 25px;
+    font-size: 1.1em;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: 0.3s;
+}
+
+.continue-btn:hover {
+    background-color: #8b2a1f;
+    transform: scale(1.05);
+}
+
+.form-container {
+    margin-top: 30px;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 15px;
+    display: none;
+}
+
+.form-group {
+    margin: 15px 0;
+}
+
+.form-group label {
+    display: inline-block;
+    width: 150px;
+    font-weight: bold;
+}
+
+.form-group input {
+    padding: 8px;
+    width: 250px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.error {
+    color: red;
+    font-size: 0.8em;
+    margin-right: 155px;
+    margin-top: 5px;
+}
+
+.submit-btn {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 155px;
+}
+
+.btn-home {
+    background: #666;
+}
+
+.btn-home:hover {
+    background: #444;
+}
+
+.info-card {
+    background: #f8f9fa;
+    border-radius: 15px;
+    padding: 20px;
+    margin: 20px 0;
+    line-height: 1.8;
+}
+
+.info-card p {
+    margin: 10px 0;
+    color: #555;
+}
+
+.contact-info {
+    background: #e8f4f8;
+    border-radius: 15px;
+    padding: 20px;
+    margin: 20px 0;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin: 15px 0;
+    padding: 10px;
+    background: white;
+    border-radius: 10px;
+}
+
+.contact-icon {
+    font-size: 1.5em;
+    min-width: 40px;
+    text-align: center;
+}
+
+.contact-text {
+    color: #333;
+}

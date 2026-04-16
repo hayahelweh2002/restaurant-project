@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>مطعمنا - الوجبات</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🍽️ قائمة الوجبات</h1>
+        <div class="subtitle">اختر ما لذ وطاب من وجباتنا</div>
+
+        <table id="mealsTable">
+            <thead>
+                <tr>
+                    <th>الرمز</th>
+                    <th>الوجبة</th>
+                    <th>السعر (ل.س)</th>
+                    <th>إظهار التفاصيل</th>
+                    <th>اختيار</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr id="row-SF-001">
+                    <td>SF-001</td>
+                    <td>وجبة سمك بوري مشوي لشخصين</td>
+                    <td>110000</td>
+                    <td><button class="btn-details" onclick="toggleDetails('SF-001')">عرض التفاصيل</button></td>
+                    <td><input type="checkbox" class="meal-checkbox" data-price="110000" data-name="وجبة سمك بوري مشوي لشخصين"></td>
+                </tr>
+                <tr id="row-SF-002">
+                    <td>SF-002</td>
+                    <td>وجبة كبسة دجاج</td>
+                    <td>85000</td>
+                    <td><button class="btn-details" onclick="toggleDetails('SF-002')">عرض التفاصيل</button></td>
+                    <td><input type="checkbox" class="meal-checkbox" data-price="85000" data-name="وجبة كبسة دجاج"></td>
+                </tr>
+                <tr id="row-SF-003">
+                    <td>SF-003</td>
+                    <td>شاورما عربي مع بطاطا</td>
+                    <td>45000</td>
+                    <td><button class="btn-details" onclick="toggleDetails('SF-003')">عرض التفاصيل</button></td>
+                    <td><input type="checkbox" class="meal-checkbox" data-price="45000" data-name="شاورما عربي مع بطاطا"></td>
+                </tr>
+                <tr id="row-SF-004">
+                    <td>SF-004</td>
+                    <td>فطائر متنوعة (4 قطع)</td>
+                    <td>35000</td>
+                    <td><button class="btn-details" onclick="toggleDetails('SF-004')">عرض التفاصيل</button></td>
+                    <td><input type="checkbox" class="meal-checkbox" data-price="35000" data-name="فطائر متنوعة (4 قطع)"></td>
+                </tr>
+                <tr id="row-SF-005">
+                    <td>SF-005</td>
+                    <td>عصير طبيعي (كأس)</td>
+                    <td>15000</td>
+                    <td><button class="btn-details" onclick="toggleDetails('SF-005')">عرض التفاصيل</button></td>
+                    <td><input type="checkbox" class="meal-checkbox" data-price="15000" data-name="عصير طبيعي (كأس)"></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div style="text-align: center;">
+            <button class="continue-btn" onclick="showOrderForm()">متابعة</button>
+        </div>
+
+        <div id="orderForm" class="form-container">
+            <h3>معلومات مقدم الطلب</h3>
+            <div class="form-group">
+                <label>الاسم الكامل:</label>
+                <input type="text" id="fullName" placeholder="أدخل اسمك (أحرف عربية فقط)">
+                <div id="nameError" class="error"></div>
+            </div>
+            <div class="form-group">
+                <label>الرقم الوطني:</label>
+                <input type="text" id="nationalId" maxlength="11" placeholder="11 خانة - أول خانتين للمحافظة">
+                <div id="idError" class="error"></div>
+            </div>
+            <div class="form-group">
+                <label>تاريخ الولادة:</label>
+                <input type="text" id="birthDate" placeholder="dd-mm-yyyy">
+                <div id="dateError" class="error"></div>
+            </div>
+            <div class="form-group">
+                <label>رقم الموبايل:</label>
+                <input type="text" id="mobile" placeholder="09xxxxxxxx">
+                <div id="mobileError" class="error"></div>
+            </div>
+            <div class="form-group">
+                <label>البريد الإلكتروني:</label>
+                <input type="email" id="email" placeholder="example@domain.com">
+                <div id="emailError" class="error"></div>
+            </div>
+            <div class="form-group">
+                <button class="submit-btn" onclick="submitOrder()">إرسال</button>
+            </div>
+        </div>
+
+        <div class="nav-buttons">
+            <a href="index.html" class="btn btn-home">🏠 الرئيسية</a>
+            <a href="AboutUs.html" class="btn">📖 من نحن</a>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script>
+        function toggleDetails(mealId) {
+            var detailsRow = document.getElementById('details-' + mealId);
+            if (detailsRow) {
+                detailsRow.remove();
+            } else {
+                var detailsHtml = '';
+                if (mealId === 'SF-001') {
+                    detailsHtml = '<td colspan="5" class="details-content"><strong>المطبخ:</strong> المصري<br><strong>تصنيف الطعام:</strong> مأكولات بحرية<br><strong>المكونات:</strong> 4 سمكات بوري أحمر، أوريجانو طازج، ملح، فلفل أسود، صلصة، زيت زيتون، ثوم، فلفل أحمر، طماطم، ليمون، بقدونس</td>';
+                } else if (mealId === 'SF-002') {
+                    detailsHtml = '<td colspan="5" class="details-content"><strong>المطبخ:</strong> سعودي<br><strong>تصنيف الطعام:</strong> أطباق رئيسية<br><strong>المكونات:</strong> دجاج، أرز بسمتي، طماطم، بصل، ثوم، لوز، زبيب، بهارات كبسة</td>';
+                } else if (mealId === 'SF-003') {
+                    detailsHtml = '<td colspan="5" class="details-content"><strong>المطبخ:</strong> سوري<br><strong>تصنيف الطعام:</strong> وجبات سريعة<br><strong>المكونات:</strong> خبز عربي، دجاج مشوي، صلصة ثوم، مخلل، بطاطا مقلية</td>';
+                } else if (mealId === 'SF-004') {
+                    detailsHtml = '<td colspan="5" class="details-content"><strong>المطبخ:</strong> سوري<br><strong>تصنيف الطعام:</strong> مقبلات<br><strong>المكونات:</strong> عجينة، جبنة، زعتر، سبانخ، لحم مفروم</td>';
+                } else if (mealId === 'SF-005') {
+                    detailsHtml = '<td colspan="5" class="details-content"><strong>المطبخ:</strong> عالمي<br><strong>تصنيف الطعام:</strong> مشروبات<br><strong>المكونات:</strong> فواكه طازجة حسب الطلب</td>';
+                }
+                var newRow = document.createElement('tr');
+                newRow.id = 'details-' + mealId;
+                newRow.className = 'details-row';
+                newRow.innerHTML = detailsHtml;
+                var currentRow = document.getElementById('row-' + mealId);
+                currentRow.parentNode.insertBefore(newRow, currentRow.nextSibling);
+            }
+        }
+
+        function showOrderForm() {
+            var checkedBoxes = document.querySelectorAll('.meal-checkbox:checked');
+            if (checkedBoxes.length === 0) {
+                alert('الرجاء اختيار وجبة واحدة على الأقل');
+                return;
+            }
+            document.getElementById('orderForm').style.display = 'block';
+        }
+
+        function submitOrder() {
+            var isValid = true;
+
+            var name = document.getElementById('fullName').value;
+            var arabicRegex = /^[\u0600-\u06FF\s]+$/;
+            if (name.trim() !== "" && !arabicRegex.test(name)) {
+                document.getElementById('nameError').innerText = 'الاسم يجب أن يحتوي على أحرف عربية فقط';
+                isValid = false;
+            } else {
+                document.getElementById('nameError').innerText = '';
+            }
+
+            var nationalId = document.getElementById('nationalId').value;
+            var idRegex = /^(0[1-9]|1[0-4])\d{9}$/;
+            if (!nationalId || !idRegex.test(nationalId)) {
+                document.getElementById('idError').innerText = 'الرقم الوطني إجباري ويجب أن يكون 11 خانة، أول خانتين من 01 إلى 14';
+                isValid = false;
+            } else {
+                document.getElementById('idError').innerText = '';
+            }
+
+            var birthDate = document.getElementById('birthDate').value;
+            var dateRegex = /^(0[1-9]|[12][0-9]|3[01])-(0[1-9]|1[0-2])-(19|20)\d{2}$/;
+            if (birthDate.trim() !== "" && !dateRegex.test(birthDate)) {
+                document.getElementById('dateError').innerText = 'التاريخ يجب أن يكون بصيغة dd-mm-yyyy';
+                isValid = false;
+            } else {
+                document.getElementById('dateError').innerText = '';
+            }
+
+            var mobile = document.getElementById('mobile').value;
+            var mobileRegex = /^(09|03)\d{8}$/;
+            if (mobile.trim() !== "" && !mobileRegex.test(mobile)) {
+                document.getElementById('mobileError').innerText = 'رقم الموبايل يجب أن يبدأ بـ 09 (MTN) أو 03 (Syriatel) ويتكون من 10 أرقام';
+                isValid = false;
+            } else {
+                document.getElementById('mobileError').innerText = '';
+            }
+
+            var email = document.getElementById('email').value;
+            var emailRegex = /^[^\s@]+@([^\s@]+\.)+[^\s@]+$/;
+            if (email.trim() !== "" && !emailRegex.test(email)) {
+                document.getElementById('emailError').innerText = 'البريد الإلكتروني غير صحيح';
+                isValid = false;
+            } else {
+                document.getElementById('emailError').innerText = '';
+            }
+
+            if (isValid) {
+                showOrderSummary();
+            }
+        }
+
+        function showOrderSummary() {
+            var checkedBoxes = document.querySelectorAll('.meal-checkbox:checked');
+            var selectedMeals = [];
+            var total = 0;
+            checkedBoxes.forEach(function(box) {
+                var name = box.getAttribute('data-name');
+                var price = parseInt(box.getAttribute('data-price'));
+                selectedMeals.push(name + ' - ' + price + ' ل.س');
+                total += price;
+            });
+            var tax = total * 0.05;
+            var finalTotal = total - tax;
+            var summary = '🍽️ الوجبات المختارة:\n';
+            summary += '━━━━━━━━━━━━━━━━━━\n';
+            selectedMeals.forEach(function(meal) {
+                summary += '• ' + meal + '\n';
+            });
+            summary += '━━━━━━━━━━━━━━━━━━\n';
+            summary += '💰 المجموع: ' + total + ' ل.س\n';
+            summary += '🎁 خصم 5%: ' + tax + ' ل.س\n';
+            summary += '💵 المبلغ النهائي: ' + finalTotal + ' ل.س\n';
+            summary += '━━━━━━━━━━━━━━━━━━\n';
+            summary += '📝 الاسم: ' + document.getElementById('fullName').value + '\n';
+            summary += '🆔 الرقم الوطني: ' + document.getElementById('nationalId').value + '\n';
+            summary += '📱 الموبايل: ' + document.getElementById('mobile').value;
+            alert(summary);
+        }
+    </script>
+</body>
+</html>
