@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <title>مطعم الأنوار  - الوجبات</title>
+    <title>مطعم الأنوار - الوجبات</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -31,35 +31,34 @@
                 </tr>
                 <tr id="row-SF-002">
                     <td>SF-002</td>
-                <td><i class="fas fa-drumstick-bite"></i> وجبة كبسة دجاج</td>
+                    <td><i class="fas fa-drumstick-bite"></i> وجبة كبسة دجاج</td>
                     <td>85000</td>
                     <td><button class="btn-details" onclick="toggleDetails('SF-002')">عرض التفاصيل</button></td>
                     <td><input type="checkbox" class="meal-checkbox" data-price="85000" data-name="وجبة كبسة دجاج"></td>
                 </tr>
                 <tr id="row-SF-003">
                     <td>SF-003</td>
-                   <td><i class="fas fa-utensils"></i> شاورما عربي مع بطاطا</td>
+                    <td><i class="fas fa-utensils"></i> شاورما عربي مع بطاطا</td>
                     <td>45000</td>
                     <td><button class="btn-details" onclick="toggleDetails('SF-003')">عرض التفاصيل</button></td>
                     <td><input type="checkbox" class="meal-checkbox" data-price="45000" data-name="شاورما عربي مع بطاطا"></td>
                 </tr>
                 <tr id="row-SF-004">
                     <td>SF-004</td>
-                 <td><i class="fas fa-pizza-slice"></i> فطائر متنوعة (4 قطع)</td>
+                    <td><i class="fas fa-pizza-slice"></i> فطائر متنوعة (4 قطع)</td>
                     <td>35000</td>
                     <td><button class="btn-details" onclick="toggleDetails('SF-004')">عرض التفاصيل</button></td>
                     <td><input type="checkbox" class="meal-checkbox" data-price="35000" data-name="فطائر متنوعة (4 قطع)"></td>
                 </tr>
                 <tr id="row-SF-005">
                     <td>SF-005</td>
-                
-                   <td><i class="fas fa-glass-cheers"></i> عصير طبيعي (كأس)</td>
+                    <td><i class="fas fa-glass-cheers"></i> عصير طبيعي (كأس)</td>
                     <td>15000</td>
                     <td><button class="btn-details" onclick="toggleDetails('SF-005')">عرض التفاصيل</button></td>
                     <td><input type="checkbox" class="meal-checkbox" data-price="15000" data-name="عصير طبيعي (كأس)"></td>
                 </tr>
             </tbody>
-        </table>
+         </table>
 
         <div style="text-align: center;">
             <button class="continue-btn" onclick="showOrderForm()">متابعة</button>
@@ -112,16 +111,42 @@
             } else {
                 var detailsHtml = '';
                 if (mealId === 'SF-001') {
-                    detailsHtml = '<td colspan="5" class="details-content"><strong>المطبخ:</strong> المصري<br><strong>تصنيف الطعام:</strong> مأكولات بحرية<br><strong>المكونات:</strong> 4 سمكات بوري أحمر، أوريجانو طازج، ملح، فلفل أسود، صلصة، زيت زيتون، ثوم، فلفل أحمر، طماطم، ليمون، بقدونس</td>';
+                    detailsHtml = '<td colspan="5" class="details-content">' +
+                        '<i class="fas fa-fish" style="font-size: 40px; float: left; margin-left: 15px;"></i>' +
+                        '<strong>المطبخ:</strong> المصري<br>' +
+                        '<strong>تصنيف الطعام:</strong> مأكولات بحرية<br>' +
+                        '<strong>المكونات:</strong> 4 سمكات بوري أحمر، أوريجانو طازج، ملح، فلفل أسود، صلصة، زيت زيتون، ثوم، فلفل أحمر، طماطم، ليمون، بقدونس' +
+                        '</td>';
                 } else if (mealId === 'SF-002') {
-                    detailsHtml = '<td colspan="5" class="details-content"><strong>المطبخ:</strong> سعودي<br><strong>تصنيف الطعام:</strong> أطباق رئيسية<br><strong>المكونات:</strong> دجاج، أرز بسمتي، طماطم، بصل، ثوم، لوز، زبيب، بهارات كبسة</td>';
+                    detailsHtml = '<td colspan="5" class="details-content">' +
+                        '<i class="fas fa-drumstick-bite" style="font-size: 40px; float: left; margin-left: 15px;"></i>' +
+                        '<strong>المطبخ:</strong> سعودي<br>' +
+                        '<strong>تصنيف الطعام:</strong> أطباق رئيسية<br>' +
+                        '<strong>المكونات:</strong> دجاج، أرز بسمتي، طماطم، بصل، ثوم، لوز، زبيب، بهارات كبسة' +
+                        '</td>';
                 } else if (mealId === 'SF-003') {
-                    detailsHtml = '<td colspan="5" class="details-content"><strong>المطبخ:</strong> سوري<br><strong>تصنيف الطعام:</strong> وجبات سريعة<br><strong>المكونات:</strong> خبز عربي، دجاج مشوي، صلصة ثوم، مخلل، بطاطا مقلية</td>';
+                    detailsHtml = '<td colspan="5" class="details-content">' +
+                        '<i class="fas fa-utensils" style="font-size: 40px; float: left; margin-left: 15px;"></i>' +
+                        '<strong>المطبخ:</strong> سوري<br>' +
+                        '<strong>تصنيف الطعام:</strong> وجبات سريعة<br>' +
+                        '<strong>المكونات:</strong> خبز عربي، دجاج مشوي، صلصة ثوم، مخلل، بطاطا مقلية' +
+                        '</td>';
                 } else if (mealId === 'SF-004') {
-                    detailsHtml = '<td colspan="5" class="details-content"><strong>المطبخ:</strong> سوري<br><strong>تصنيف الطعام:</strong> مقبلات<br><strong>المكونات:</strong> عجينة، جبنة، زعتر، سبانخ، لحم مفروم</td>';
+                    detailsHtml = '<td colspan="5" class="details-content">' +
+                        '<i class="fas fa-pizza-slice" style="font-size: 40px; float: left; margin-left: 15px;"></i>' +
+                        '<strong>المطبخ:</strong> سوري<br>' +
+                        '<strong>تصنيف الطعام:</strong> مقبلات<br>' +
+                        '<strong>المكونات:</strong> عجينة، جبنة، زعتر، سبانخ، لحم مفروم' +
+                        '</td>';
                 } else if (mealId === 'SF-005') {
-                    detailsHtml = '<td colspan="5" class="details-content"><strong>المطبخ:</strong> عالمي<br><strong>تصنيف الطعام:</strong> مشروبات<br><strong>المكونات:</strong> فواكه طازجة حسب الطلب</td>';
+                    detailsHtml = '<td colspan="5" class="details-content">' +
+                        '<i class="fas fa-glass-cheers" style="font-size: 40px; float: left; margin-left: 15px;"></i>' +
+                        '<strong>المطبخ:</strong> عالمي<br>' +
+                        '<strong>تصنيف الطعام:</strong> مشروبات<br>' +
+                        '<strong>المكونات:</strong> فواكه طازجة حسب الطلب' +
+                        '</td>';
                 }
+
                 var newRow = document.createElement('tr');
                 newRow.id = 'details-' + mealId;
                 newRow.className = 'details-row';
